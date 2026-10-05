@@ -5,31 +5,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MD. Nasim Uddin | Data Analyst</title>
+<title>MD. Nasim Uddin — Data Analyst</title>
 
-<meta name="description" content="MD. Nasim Uddin is a Data Analyst specializing in SQL, Power BI, Excel, Python, data visualization and business intelligence.">
-<meta name="keywords" content="MD Nasim Uddin, Data Analyst, Bangladesh Data Analyst, Power BI, SQL, Python, Excel, Business Intelligence">
+<meta name="description"
+content="MD. Nasim Uddin — Data Analyst specializing in SQL, Power BI, Python, Excel and business intelligence.">
+
 <meta name="author" content="MD. Nasim Uddin">
 
 <style>
 
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
-    --bg:#07111f;
-    --bg2:#0a1626;
-    --card:#0e1b2d;
-    --card2:#102238;
-    --text:#eaf1f8;
-    --muted:#9fb0c3;
-    --accent:#38bdf8;
-    --accent2:#22c55e;
-    --line:#20324a;
-    --white:#ffffff;
+    --bg:#060b13;
+    --bg-soft:#0a111d;
+    --panel:#0d1624;
+    --panel-light:#111d2d;
+
+    --text:#f3f7fb;
+    --muted:#91a0b3;
+
+    --blue:#4cc9f0;
+    --blue-soft:#1c7897;
+
+    --green:#38d996;
+
+    --border:rgba(255,255,255,.09);
+
+    --max:1180px;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -37,10 +53,23 @@ html{
 }
 
 body{
-    font-family:Inter,Segoe UI,Arial,sans-serif;
-    background:linear-gradient(180deg,var(--bg),var(--bg2));
+    background:
+        radial-gradient(circle at 80% 10%,rgba(76,201,240,.08),transparent 25%),
+        radial-gradient(circle at 10% 70%,rgba(56,217,150,.04),transparent 25%),
+        var(--bg);
+
     color:var(--text);
-    line-height:1.7;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height:1.6;
 }
 
 a{
@@ -48,406 +77,1109 @@ a{
     text-decoration:none;
 }
 
+img{
+    max-width:100%;
+}
+
 .container{
-    width:min(1120px,92%);
+    width:min(var(--max),92%);
     margin:auto;
 }
 
-/* NAVIGATION */
 
-nav{
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
     position:sticky;
     top:0;
     z-index:100;
-    background:rgba(7,17,31,.94);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--line);
+
+    border-bottom:1px solid var(--border);
+
+    background:rgba(6,11,19,.82);
+    backdrop-filter:blur(18px);
 }
 
-.nav{
+.nav-inner{
+    min-height:74px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    min-height:70px;
 }
 
 .logo{
+    font-weight:900;
+    letter-spacing:-.5px;
     font-size:20px;
-    font-weight:800;
-    letter-spacing:.5px;
 }
 
 .logo span{
-    color:var(--accent);
+    color:var(--blue);
 }
 
-.links{
+.nav-links{
     display:flex;
-    gap:25px;
+    gap:27px;
+
     color:var(--muted);
     font-size:14px;
 }
 
-.links a{
-    transition:.25s;
+.nav-links a{
+    transition:.2s;
 }
 
-.links a:hover{
-    color:var(--accent);
-}
-
-/* HERO */
-
-.hero{
-    padding:110px 0 90px;
-}
-
-.badge{
-    display:inline-block;
-    background:#12304a;
-    color:#7dd3fc;
-    padding:7px 14px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.5px;
-}
-
-h1{
-    font-size:clamp(42px,7vw,76px);
-    line-height:1.05;
-    margin:22px 0;
-    letter-spacing:-2px;
-}
-
-.gradient{
-    color:var(--accent);
-}
-
-.hero p{
-    max-width:760px;
-    color:var(--muted);
-    font-size:19px;
-}
-
-.buttons{
-    display:flex;
-    gap:14px;
-    margin-top:30px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-block;
-    padding:13px 21px;
-    border-radius:9px;
-    font-weight:700;
-    background:var(--accent);
-    color:#052033;
-    transition:.25s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-    opacity:.9;
-}
-
-.btn.secondary{
-    background:transparent;
-    border:1px solid var(--line);
+.nav-links a:hover{
     color:var(--text);
 }
 
-.btn.secondary:hover{
-    border-color:var(--accent);
-    color:var(--accent);
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:calc(100vh - 74px);
+
+    display:flex;
+    align-items:center;
+
+    padding:90px 0;
 }
 
-/* SECTIONS */
-
-section{
-    padding:70px 0;
-    border-top:1px solid var(--line);
-}
-
-h2{
-    font-size:32px;
-    margin-bottom:30px;
-    letter-spacing:-.5px;
-}
-
-.section-intro{
-    color:var(--muted);
-    max-width:700px;
-    margin-top:-18px;
-    margin-bottom:28px;
-}
-
-/* CARDS */
-
-.grid{
+.hero-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:1.25fr .75fr;
+    gap:70px;
+    align-items:center;
 }
 
-.two{
-    grid-template-columns:repeat(2,1fr);
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:7px 12px;
+
+    border:1px solid rgba(76,201,240,.22);
+    background:rgba(76,201,240,.07);
+
+    border-radius:999px;
+
+    color:#8cdef5;
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:1.5px;
 }
 
-.card{
-    background:rgba(14,27,45,.9);
-    border:1px solid var(--line);
-    padding:25px;
-    border-radius:15px;
+.status-dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--green);
+    box-shadow:0 0 12px rgba(56,217,150,.7);
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,88px);
+    line-height:.98;
+
+    letter-spacing:-4px;
+
+    margin:25px 0;
+}
+
+.hero h1 span{
+    color:var(--blue);
+}
+
+.hero-description{
+    max-width:700px;
+
+    color:var(--muted);
+
+    font-size:18px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+
+    margin-top:32px;
+}
+
+.button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:13px 19px;
+
+    border-radius:9px;
+
+    font-size:14px;
+    font-weight:800;
+
     transition:.25s;
 }
 
-.card:hover{
-    transform:translateY(-3px);
-    border-color:#31506d;
+.button-primary{
+    background:var(--blue);
+    color:#03131b;
 }
 
-.card h3{
-    margin-bottom:10px;
-    font-size:19px;
+.button-primary:hover{
+    transform:translateY(-2px);
 }
 
-.muted{
-    color:var(--muted);
+.button-outline{
+    border:1px solid var(--border);
+    color:var(--text);
+    background:rgba(255,255,255,.02);
 }
 
-/* ABOUT */
-
-.about-highlight{
-    border-left:3px solid var(--accent);
-    padding-left:20px;
+.button-outline:hover{
+    border-color:rgba(76,201,240,.5);
 }
 
-/* SKILLS */
 
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:9px;
-    margin-top:15px;
-}
+/* =========================================================
+   HERO ANALYTICS CARD
+========================================================= */
 
-.tag{
-    padding:7px 12px;
-    border:1px solid #28435f;
-    border-radius:20px;
-    color:#b9d7ed;
-    font-size:14px;
-    background:#0b1b2e;
-}
-
-/* PROJECTS */
-
-.project{
+.analytics-card{
     position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,29,45,.96),
+            rgba(8,16,27,.96)
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35);
+}
+
+.analytics-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.analytics-title{
+    font-size:13px;
+    font-weight:800;
+}
+
+.live{
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+}
+
+.metric{
+    padding:18px 0;
+
+    border-bottom:1px solid var(--border);
+}
+
+.metric:last-child{
+    border-bottom:0;
+}
+
+.metric-label{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.metric-value{
+    margin-top:4px;
+
+    font-size:25px;
+    font-weight:850;
+}
+
+.metric-bar{
+    height:5px;
+
+    margin-top:11px;
+
+    border-radius:20px;
+
+    background:#172334;
+
     overflow:hidden;
 }
 
-.project-label{
-    color:var(--accent);
-    font-size:11px;
+.metric-fill{
+    height:100%;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        90deg,
+        var(--blue),
+        var(--green)
+    );
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section{
+    padding:105px 0;
+
+    border-top:1px solid var(--border);
+}
+
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+
+    gap:30px;
+
+    margin-bottom:45px;
+}
+
+.section-number{
+    color:var(--blue);
+
+    font-size:12px;
+    font-weight:900;
+
     letter-spacing:2px;
-    font-weight:800;
-    margin-bottom:12px;
+}
+
+.section-title{
+    font-size:42px;
+    letter-spacing:-1.8px;
+    margin-top:5px;
+}
+
+.section-description{
+    max-width:500px;
+
+    color:var(--muted);
+    font-size:15px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+}
+
+.about-card{
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:30px;
+}
+
+.about-card p{
+    color:var(--muted);
+    font-size:16px;
+}
+
+.about-card p + p{
+    margin-top:18px;
+}
+
+.quote{
+    margin-top:25px;
+
+    padding-left:17px;
+
+    border-left:2px solid var(--blue);
+
+    color:#c9d5e2;
+
+    font-weight:650;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skill-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.skill-card{
+    padding:25px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+}
+
+.skill-card h3{
+    font-size:16px;
+    margin-bottom:17px;
+}
+
+.skill-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.skill{
+    padding:7px 10px;
+
+    background:#101d2c;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:7px;
+
+    color:#b9c9d9;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.project-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+}
+
+.project{
+    position:relative;
+
+    padding:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0e1928,
+            #09111d
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(76,201,240,.35);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.25);
+}
+
+.project-top{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.project-type{
+    color:var(--blue);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:1.7px;
+}
+
+.project-number{
+    color:#34475b;
+
+    font-size:24px;
+
+    font-weight:900;
+}
+
+.project h3{
+    font-size:25px;
+
+    letter-spacing:-.6px;
+
+    margin-bottom:9px;
+}
+
+.project-subtitle{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:20px;
 }
 
 .project ul{
-    padding-left:19px;
+    padding-left:18px;
+
     color:var(--muted);
-    margin:15px 0;
+
+    font-size:14px;
 }
 
 .project li{
-    margin-bottom:7px;
+    margin-bottom:9px;
+}
+
+.project-footer{
+    margin-top:25px;
+
+    padding-top:18px;
+
+    border-top:1px solid var(--border);
 }
 
 .project-link{
-    color:var(--accent);
-    font-weight:700;
+    color:var(--blue);
+
+    font-size:13px;
+
+    font-weight:800;
 }
 
-.project-link:hover{
-    text-decoration:underline;
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.timeline{
+    position:relative;
+
+    max-width:900px;
+
+    margin:auto;
 }
 
-/* EXPERIENCE */
+.timeline::before{
+    content:"";
 
-.experience .date{
-    color:var(--accent);
-    font-weight:700;
-    font-size:14px;
+    position:absolute;
+
+    left:9px;
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:var(--border);
+}
+
+.timeline-item{
+    position:relative;
+
+    padding-left:45px;
+
+    padding-bottom:45px;
+}
+
+.timeline-item:last-child{
+    padding-bottom:0;
+}
+
+.timeline-dot{
+    position:absolute;
+
+    left:3px;
+    top:5px;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:var(--bg);
+
+    border:3px solid var(--blue);
+}
+
+.timeline-date{
+    color:var(--blue);
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
     margin-bottom:7px;
 }
 
-.experience .company{
+.timeline-item h3{
+    font-size:21px;
+}
+
+.timeline-company{
     color:var(--muted);
-    margin-bottom:13px;
+
+    font-size:14px;
+
+    margin:3px 0 14px;
 }
 
-/* EDUCATION */
+.timeline-item p{
+    color:var(--muted);
 
-.education-item{
-    margin-bottom:15px;
+    font-size:14px;
+
+    max-width:750px;
 }
 
-.education-item strong{
-    display:block;
-    font-size:17px;
+.timeline-item ul{
+    margin-top:13px;
+
+    padding-left:18px;
+
+    color:var(--muted);
+
+    font-size:14px;
 }
 
-/* CONTACT */
+.timeline-item li{
+    margin-bottom:7px;
+}
 
-.contact{
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-grid{
     display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.education-card{
+    padding:25px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+}
+
+.education-year{
+    color:var(--blue);
+
+    font-size:12px;
+
+    font-weight:900;
+}
+
+.education-card h3{
+    margin:12px 0 7px;
+
+    font-size:18px;
+}
+
+.education-card p{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   LEADERSHIP
+========================================================= */
+
+.leadership-grid{
+    display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:20px;
 }
 
-.contact p{
-    margin:12px 0;
+.leadership-card{
+    padding:27px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
 }
 
-.contact a{
-    color:var(--accent);
+.leadership-card h3{
+    margin-bottom:8px;
 }
 
-.profile-link{
+.leadership-card p{
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-wrapper{
+    display:grid;
+
+    grid-template-columns:
+        1fr .8fr;
+
+    gap:25px;
+}
+
+.contact-main{
+    padding:35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101d2c,
+            #0a121f
+        );
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+}
+
+.contact-main h3{
+    font-size:30px;
+
+    letter-spacing:-1px;
+
+    margin-bottom:12px;
+}
+
+.contact-main>p{
+    color:var(--muted);
+
+    max-width:600px;
+}
+
+.contact-buttons{
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+}
+
+.contact-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.contact-item{
     display:block;
-    padding:11px 13px;
-    margin:10px 0;
-    background:#0b1b2e;
-    border:1px solid var(--line);
-    border-radius:8px;
-    transition:.25s;
+
+    padding:17px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    transition:.2s;
 }
 
-.profile-link:hover{
-    border-color:var(--accent);
+.contact-item:hover{
+    border-color:rgba(76,201,240,.4);
+
     transform:translateX(3px);
 }
 
-/* FOOTER */
+.contact-label{
+    color:var(--muted);
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.3px;
+}
+
+.contact-value{
+    color:var(--blue);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-top:3px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-    text-align:center;
-    padding:35px 20px;
+    padding:35px 0;
+
+    border-top:1px solid var(--border);
+
     color:var(--muted);
-    font-size:14px;
-    border-top:1px solid var(--line);
+
+    font-size:12px;
+}
+
+.footer-inner{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    align-items:center;
 }
 
 .footer-links{
-    margin-top:10px;
-}
+    display:flex;
 
-.footer-links a{
-    margin:0 8px;
-    color:var(--muted);
+    gap:17px;
 }
 
 .footer-links a:hover{
-    color:var(--accent);
+    color:var(--blue);
 }
 
-/* MOBILE */
 
-@media(max-width:760px){
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    .links{
+@media(max-width:850px){
+
+    .nav-links{
         display:none;
     }
 
-    .hero{
-        padding:75px 0 65px;
-    }
-
-    h1{
-        font-size:46px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    .grid,
-    .two,
-    .contact{
+    .hero-grid,
+    .about-grid,
+    .contact-wrapper{
         grid-template-columns:1fr;
     }
 
-    section{
-        padding:55px 0;
+    .hero{
+        padding:75px 0;
     }
 
-    h2{
-        font-size:28px;
+    .hero h1{
+        font-size:52px;
+
+        letter-spacing:-2.5px;
     }
+
+    .analytics-card{
+        max-width:550px;
+    }
+
+    .skill-grid,
+    .education-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .section-description{
+        margin-top:12px;
+    }
+}
+
+
+@media(max-width:600px){
+
+    section{
+        padding:75px 0;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .project-grid,
+    .skill-grid,
+    .education-grid,
+    .leadership-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-title{
+        font-size:34px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- NAVIGATION -->
 
-<nav>
-<div class="container nav">
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-    <div class="logo">
+<header class="navbar">
+
+<div class="container nav-inner">
+
+    <a href="#" class="logo">
         NASIM<span>.</span>DATA
-    </div>
+    </a>
 
-    <div class="links">
+    <nav class="nav-links">
+
         <a href="#about">About</a>
+
         <a href="#skills">Skills</a>
+
         <a href="#projects">Projects</a>
+
         <a href="#experience">Experience</a>
+
         <a href="#education">Education</a>
+
         <a href="#contact">Contact</a>
-    </div>
+
+    </nav>
 
 </div>
-</nav>
+
+</header>
+
 
 
 <main>
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-<div class="container">
+<div class="container hero-grid">
 
-    <div class="badge">
-        DATA ANALYST · POWER BI · SQL · PYTHON
+
+    <div>
+
+        <div class="eyebrow">
+
+            <span class="status-dot"></span>
+
+            DATA ANALYST · BANGLADESH
+
+        </div>
+
+
+        <h1>
+
+            Turning data into
+            <span>decisions.</span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            I'm MD. Nasim Uddin, a Statistics graduate and
+            Data Analyst focused on SQL, Power BI, Python,
+            Excel and business intelligence.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#projects"
+                class="button button-primary"
+            >
+                Explore My Work →
+            </a>
+
+
+            <a
+                href="#contact"
+                class="button button-outline"
+            >
+                Get In Touch
+            </a>
+
+        </div>
+
     </div>
 
-    <h1>
-        Hi, I'm <span class="gradient">MD. Nasim Uddin</span>.
-    </h1>
 
-    <p>
-        A Statistics graduate and Data Analyst focused on transforming
-        raw data into meaningful insights, interactive dashboards and
-        business decisions using SQL, Power BI, Excel and Python.
-    </p>
 
-    <div class="buttons">
+    <!-- ANALYTICS CARD -->
 
-        <a class="btn" href="#projects">
-            View My Projects
-        </a>
+    <div class="analytics-card">
 
-        <a class="btn secondary" href="#contact">
-            Let's Connect
-        </a>
+        <div class="analytics-header">
+
+            <div class="analytics-title">
+                ANALYTICS TOOLKIT
+            </div>
+
+            <div class="live">
+                ● ACTIVE
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-label">
+                POWER BI
+            </div>
+
+            <div class="metric-value">
+                Business Intelligence
+            </div>
+
+            <div class="metric-bar">
+                <div
+                    class="metric-fill"
+                    style="width:92%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-label">
+                SQL
+            </div>
+
+            <div class="metric-value">
+                Data Analysis
+            </div>
+
+            <div class="metric-bar">
+                <div
+                    class="metric-fill"
+                    style="width:88%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-label">
+                PYTHON
+            </div>
+
+            <div class="metric-value">
+                Data Processing
+            </div>
+
+            <div class="metric-bar">
+                <div
+                    class="metric-fill"
+                    style="width:82%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-label">
+                EXCEL
+            </div>
+
+            <div class="metric-value">
+                Reporting & Analysis
+            </div>
+
+            <div class="metric-bar">
+                <div
+                    class="metric-fill"
+                    style="width:90%"
+                ></div>
+            </div>
+
+        </div>
 
     </div>
 
@@ -456,97 +1188,190 @@ footer{
 </section>
 
 
-<!-- ABOUT -->
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
 <section id="about">
 
 <div class="container">
 
-    <h2>About Me</h2>
+<div class="section-heading">
 
-    <div class="card">
+    <div>
 
-        <div class="about-highlight">
+        <div class="section-number">
+            01 — ABOUT
+        </div>
 
-            <p>
-                I am a Statistics graduate with practical experience in
-                data analysis, business intelligence, dashboard development,
-                SQL querying and data reporting.
-            </p>
+        <h2 class="section-title">
+            The analyst behind the numbers.
+        </h2>
 
-            <br>
+    </div>
 
-            <p>
-                I enjoy working with real-world datasets, identifying
-                patterns and trends, building useful dashboards and
-                communicating insights in a simple and actionable way.
-            </p>
+    <p class="section-description">
+
+        Analytical and detail-oriented Statistics graduate
+        with a technical foundation in data management,
+        quantitative research and data visualization.
+
+    </p>
+
+</div>
+
+
+
+<div class="about-grid">
+
+
+    <div class="about-card">
+
+        <p>
+
+            I specialize in uncovering actionable business
+            insights from data using Power BI, SQL, Python,
+            Excel, R and SPSS.
+
+        </p>
+
+        <p>
+
+            My work covers the complete analytical process —
+            from cleaning and structuring data to exploratory
+            analysis and interactive reporting dashboards.
+
+        </p>
+
+        <div class="quote">
+
+            "Good analysis doesn't just explain what happened.
+            It helps people decide what to do next."
 
         </div>
 
     </div>
+
+
+    <div class="about-card">
+
+        <p>
+            <strong style="color:white;">
+                What I work with
+            </strong>
+        </p>
+
+        <p>
+            Business intelligence dashboards,
+            statistical analysis, relational databases,
+            data cleaning, KPI reporting and
+            visualization.
+        </p>
+
+        <p>
+            My academic foundation is a
+            <strong style="color:white;">
+                BSc. in Statistics
+            </strong>
+            from Dhaka College.
+        </p>
+
+    </div>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- SKILLS -->
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
 <section id="skills">
 
 <div class="container">
 
-    <h2>Technical Skills</h2>
+<div class="section-heading">
 
-    <p class="section-intro">
-        Tools and technologies I use for data analysis, visualization,
-        reporting and business intelligence.
-    </p>
+    <div>
 
-    <div class="grid">
+        <div class="section-number">
+            02 — TOOLKIT
+        </div>
 
-        <div class="card">
+        <h2 class="section-title">
+            Tools I use to solve problems.
+        </h2>
 
-            <h3>Data Analysis</h3>
+    </div>
 
-            <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Pandas</span>
-                <span class="tag">NumPy</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Excel</span>
-            </div>
+</div>
+
+
+<div class="skill-grid">
+
+
+    <div class="skill-card">
+
+        <h3>
+            Programming & Analysis
+        </h3>
+
+        <div class="skill-list">
+
+            <span class="skill">Python</span>
+
+            <span class="skill">SQL</span>
+
+            <span class="skill">R</span>
+
+            <span class="skill">SPSS</span>
+
+            <span class="skill">Advanced Excel</span>
 
         </div>
 
+    </div>
 
-        <div class="card">
 
-            <h3>Business Intelligence</h3>
+    <div class="skill-card">
 
-            <div class="tags">
-                <span class="tag">Power BI</span>
-                <span class="tag">DAX</span>
-                <span class="tag">Power Query</span>
-                <span class="tag">KPI Reporting</span>
-                <span class="tag">Data Visualization</span>
-            </div>
+        <h3>
+            Data Visualization
+        </h3>
+
+        <div class="skill-list">
+
+            <span class="skill">Power BI</span>
+
+            <span class="skill">Tableau</span>
+
+            <span class="skill">Interactive Dashboards</span>
+
+            <span class="skill">KPI Reporting</span>
 
         </div>
 
+    </div>
 
-        <div class="card">
 
-            <h3>Other Tools</h3>
+    <div class="skill-card">
 
-            <div class="tags">
-                <span class="tag">GitHub</span>
-                <span class="tag">MS Word</span>
-                <span class="tag">PowerPoint</span>
-                <span class="tag">R</span>
-                <span class="tag">SPSS</span>
-            </div>
+        <h3>
+            Documentation & Design
+        </h3>
+
+        <div class="skill-list">
+
+            <span class="skill">MS Word</span>
+
+            <span class="skill">PowerPoint</span>
+
+            <span class="skill">Adobe Photoshop</span>
 
         </div>
 
@@ -554,555 +1379,642 @@ footer{
 
 </div>
 
+</div>
+
 </section>
 
 
-<!-- PROJECTS -->
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
 
 <section id="projects">
 
 <div class="container">
 
-    <h2>Featured Projects</h2>
 
-    <p class="section-intro">
-        Selected data analytics projects demonstrating practical
-        experience with SQL, Power BI, Excel and Python.
-    </p>
+<div class="section-heading">
 
+    <div>
 
-    <div class="two grid">
+        <div class="section-number">
+            03 — SELECTED WORK
+        </div>
 
-
-        <!-- PROJECT 1 -->
-
-        <article class="card project">
-
-            <div class="project-label">
-                POWER BI · EXCEL · DATA ANALYSIS
-            </div>
-
-            <h3>
-                Retail Sales Performance Analysis
-            </h3>
-
-            <p class="muted">
-                Interactive Business Intelligence Dashboard
-            </p>
-
-            <ul>
-
-                <li>
-                    Analyzed sales, profit and regional performance.
-                </li>
-
-                <li>
-                    Built interactive KPI dashboards using Power BI.
-                </li>
-
-                <li>
-                    Analyzed product, customer and salesperson contribution.
-                </li>
-
-                <li>
-                    Created time-based performance metrics and growth analysis.
-                </li>
-
-            </ul>
-
-            <a
-                class="project-link"
-                href="https://github.com/Nasim43"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                View on GitHub →
-            </a>
-
-        </article>
-
-
-        <!-- PROJECT 2 -->
-
-        <article class="card project">
-
-            <div class="project-label">
-                SQL · MYSQL · DATA ANALYSIS
-            </div>
-
-            <h3>
-                Pizza Sales SQL Analysis
-            </h3>
-
-            <p class="muted">
-                Business Performance Analysis using SQL
-            </p>
-
-            <ul>
-
-                <li>
-                    Used SQL queries to analyze sales performance.
-                </li>
-
-                <li>
-                    Identified top-selling products and categories.
-                </li>
-
-                <li>
-                    Analyzed peak sales hours and revenue patterns.
-                </li>
-
-                <li>
-                    Created business-focused analytical metrics.
-                </li>
-
-            </ul>
-
-            <a
-                class="project-link"
-                href="https://github.com/Nasim43"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                View on GitHub →
-            </a>
-
-        </article>
-
-
-        <!-- PROJECT 3 -->
-
-        <article class="card project">
-
-            <div class="project-label">
-                PYTHON · PANDAS · POWER BI
-            </div>
-
-            <h3>
-                Customer Segmentation & Churn Analysis
-            </h3>
-
-            <p class="muted">
-                Customer Analytics Project
-            </p>
-
-            <ul>
-
-                <li>
-                    Cleaned and prepared customer datasets using Python.
-                </li>
-
-                <li>
-                    Performed exploratory data analysis with Pandas.
-                </li>
-
-                <li>
-                    Identified customer behavior and churn patterns.
-                </li>
-
-                <li>
-                    Presented analytical insights through dashboards.
-                </li>
-
-            </ul>
-
-            <a
-                class="project-link"
-                href="https://github.com/Nasim43"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                View on GitHub →
-            </a>
-
-        </article>
-
-
-        <!-- PROJECT 4 -->
-
-        <article class="card project">
-
-            <div class="project-label">
-                PYTHON · PANDAS · DATA ANALYSIS
-            </div>
-
-            <h3>
-                Bangladesh Job Market Analysis
-            </h3>
-
-            <p class="muted">
-                Job Market Data Analysis
-            </p>
-
-            <ul>
-
-                <li>
-                    Cleaned and analyzed job market datasets.
-                </li>
-
-                <li>
-                    Used Python and Pandas for exploratory analysis.
-                </li>
-
-                <li>
-                    Investigated job roles, skills and market trends.
-                </li>
-
-                <li>
-                    Converted raw job data into useful insights.
-                </li>
-
-            </ul>
-
-            <a
-                class="project-link"
-                href="https://github.com/Nasim43"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                View on GitHub →
-            </a>
-
-        </article>
+        <h2 class="section-title">
+            Data projects.
+        </h2>
 
     </div>
+
+    <p class="section-description">
+
+        Practical projects demonstrating business analysis,
+        SQL querying and interactive dashboard development.
+
+    </p>
+
+</div>
+
+
+
+<div class="project-grid">
+
+
+    <!-- PROJECT 01 -->
+
+    <article class="project">
+
+        <div class="project-top">
+
+            <div class="project-type">
+                POWER BI · BUSINESS INTELLIGENCE
+            </div>
+
+            <div class="project-number">
+                01
+            </div>
+
+        </div>
+
+
+        <h3>
+            Retail Sales Performance Analysis
+        </h3>
+
+
+        <p class="project-subtitle">
+            Interactive Power BI Dashboard
+        </p>
+
+
+        <ul>
+
+            <li>
+                Analyzed cross-regional retail sales
+                trends and return rates across store locations.
+            </li>
+
+            <li>
+                Built an interactive Power BI dashboard
+                to present operational KPIs.
+            </li>
+
+            <li>
+                Implemented time-intelligence metrics
+                to monitor Month-over-Month revenue growth.
+            </li>
+
+        </ul>
+
+
+        <div class="project-footer">
+
+            <a
+                href="https://github.com/Nasim43"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+            >
+                View project on GitHub →
+            </a>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- PROJECT 02 -->
+
+    <article class="project">
+
+        <div class="project-top">
+
+            <div class="project-type">
+                SQL · DATA ANALYSIS
+            </div>
+
+            <div class="project-number">
+                02
+            </div>
+
+        </div>
+
+
+        <h3>
+            Pizza Sales SQL Analysis
+        </h3>
+
+
+        <p class="project-subtitle">
+            Relational Database Analysis
+        </p>
+
+
+        <ul>
+
+            <li>
+                Formulated complex SQL relational queries
+                to extract key performance metrics.
+            </li>
+
+            <li>
+                Cleaned untidy datasets and generated
+                structured analytical summaries.
+            </li>
+
+            <li>
+                Identified peak sales hours and
+                top-selling product categories.
+            </li>
+
+        </ul>
+
+
+        <div class="project-footer">
+
+            <a
+                href="https://github.com/Nasim43"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+            >
+                View project on GitHub →
+            </a>
+
+        </div>
+
+    </article>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- EXPERIENCE -->
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
 
 <section id="experience">
 
-<div class="container experience">
-
-    <h2>Professional Experience</h2>
+<div class="container">
 
 
-    <div class="two grid">
+<div class="section-heading">
 
+    <div>
 
-        <!-- CURRENT JOB -->
-
-        <div class="card">
-
-            <div class="date">
-                Sep 2026 – Present
-            </div>
-
-            <h3>
-                Data Analyst
-            </h3>
-
-            <p class="company">
-                Anwar Group
-            </p>
-
-            <p>
-                Working with business and sales data to support
-                reporting, analysis and decision-making.
-            </p>
-
-            <ul class="muted" style="padding-left:18px;margin-top:12px;">
-
-                <li>
-                    Analyze sales and operational data.
-                </li>
-
-                <li>
-                    Build interactive Power BI dashboards.
-                </li>
-
-                <li>
-                    Write SQL queries for data extraction and analysis.
-                </li>
-
-                <li>
-                    Prepare Excel reports and KPI summaries.
-                </li>
-
-                <li>
-                    Use Python for data cleaning and analysis.
-                </li>
-
-            </ul>
-
+        <div class="section-number">
+            04 — EXPERIENCE
         </div>
 
-
-        <!-- PREVIOUS EXPERIENCE -->
-
-        <div class="card">
-
-            <div class="date">
-                May 2023 – Jun 2024
-            </div>
-
-            <h3>
-                Trainee Executive & Intern – Big Data
-            </h3>
-
-            <p class="company">
-                E-Learning & Earning LTD – Dhaka
-            </p>
-
-            <p>
-                Worked with data analysis, exploratory data analysis,
-                statistical techniques and business intelligence
-                concepts.
-            </p>
-
-            <ul class="muted" style="padding-left:18px;margin-top:12px;">
-
-                <li>
-                    Performed exploratory data analysis.
-                </li>
-
-                <li>
-                    Worked with SQL and large datasets.
-                </li>
-
-                <li>
-                    Developed interactive BI dashboards.
-                </li>
-
-                <li>
-                    Applied statistical frameworks to business data.
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- FREELANCE -->
-
-        <div class="card">
-
-            <div class="date">
-                Oct 2019 – Dec 2021
-            </div>
-
-            <h3>
-                Freelance Data Annotator & Language Specialist
-            </h3>
-
-            <p class="company">
-                Digital Freelancing Platforms
-            </p>
-
-            <p>
-                Worked on data annotation, transcription,
-                translation, subtitling and quality-control
-                projects for digital datasets.
-            </p>
-
-        </div>
+        <h2 class="section-title">
+            Where I've worked.
+        </h2>
 
     </div>
+
+</div>
+
+
+
+<div class="timeline">
+
+
+    <!-- EXPERIENCE 01 -->
+
+    <div class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-date">
+            MAY 2023 — JUN 2024
+        </div>
+
+        <h3>
+            Trainee Executive & Intern (Big Data)
+        </h3>
+
+        <div class="timeline-company">
+            E-Learning & Earning LTD — Dhaka
+        </div>
+
+        <p>
+            Worked with data analysis, exploratory data analysis
+            and statistical frameworks to identify growth insights.
+        </p>
+
+        <ul>
+
+            <li>
+                Conducted exploratory data analysis and
+                developed statistical frameworks.
+            </li>
+
+            <li>
+                Built interactive business intelligence
+                dashboards in Tableau and Power BI.
+            </li>
+
+            <li>
+                Structured and optimized relational SQL queries
+                for large datasets.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- EXPERIENCE 02 -->
+
+    <div class="timeline-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-date">
+            OCT 2019 — DEC 2021
+        </div>
+
+        <h3>
+            Freelance Data Annotator & Language Specialist
+        </h3>
+
+        <div class="timeline-company">
+            Digital Freelancing Platforms · Google Loft & Amazon MTurk
+        </div>
+
+        <p>
+            Worked with multilingual audio and linguistic
+            datasets used in digital and machine-learning
+            workflows.
+        </p>
+
+        <ul>
+
+            <li>
+                Conducted transcription, translation and
+                time-syncing for multilingual audio datasets.
+            </li>
+
+            <li>
+                Performed data annotation, labeling and
+                quality control.
+            </li>
+
+            <li>
+                Cleaned and structured unstructured text data
+                for machine-learning models.
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- EDUCATION -->
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
 
 <section id="education">
 
 <div class="container">
 
-    <h2>Education & Training</h2>
 
-    <div class="two grid">
+<div class="section-heading">
 
+    <div>
 
-        <div class="card">
-
-            <h3>
-                Bachelor of Science in Statistics
-            </h3>
-
-            <p class="muted">
-                Dhaka College
-            </p>
-
-            <p class="education-item">
-                CGPA: <strong>2.98 / 4.00</strong>
-            </p>
-
+        <div class="section-number">
+            05 — EDUCATION
         </div>
 
-
-        <div class="card">
-
-            <h3>
-                Data Science & Machine Learning
-            </h3>
-
-            <p class="muted">
-                BASIS Institute of Technology & Management (BITM)
-            </p>
-
-            <p style="margin-top:10px;">
-                Training in data science, analytics and machine-learning
-                concepts.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>
-                Big Data Training
-            </h3>
-
-            <p class="muted">
-                Professional Training
-            </p>
-
-            <p style="margin-top:10px;">
-                Practical exposure to data analysis, big data concepts,
-                SQL and business intelligence.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>
-                Languages
-            </h3>
-
-            <div class="tags">
-
-                <span class="tag">
-                    Bengali – Native
-                </span>
-
-                <span class="tag">
-                    English – Professional
-                </span>
-
-                <span class="tag">
-                    Japanese – Learning
-                </span>
-
-            </div>
-
-        </div>
+        <h2 class="section-title">
+            Academic foundation.
+        </h2>
 
     </div>
+
+</div>
+
+
+
+<div class="education-grid">
+
+
+    <div class="education-card">
+
+        <div class="education-year">
+            2019 — 2025
+        </div>
+
+        <h3>
+            BSc. in Statistics
+        </h3>
+
+        <p>
+            Dhaka College, Dhaka
+        </p>
+
+        <p style="margin-top:10px;">
+            CGPA: <strong style="color:white;">
+                2.98
+            </strong>
+        </p>
+
+    </div>
+
+
+
+    <div class="education-card">
+
+        <div class="education-year">
+            JAN 2024 — MAY 2024
+        </div>
+
+        <h3>
+            Data Science & Machine Learning
+        </h3>
+
+        <p>
+            BASIS Institute of Technology & Management (BITM)
+        </p>
+
+        <p style="margin-top:10px;">
+            Score: <strong style="color:white;">
+                70 / 100
+            </strong>
+        </p>
+
+    </div>
+
+
+
+    <div class="education-card">
+
+        <div class="education-year">
+            MAY 2023 — AUG 2023
+        </div>
+
+        <h3>
+            Training on Big Data
+        </h3>
+
+        <p>
+            Bangladesh Computer Council (BCC)
+            & IIT, University of Dhaka
+        </p>
+
+    </div>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- CONTACT -->
+
+<!-- =====================================================
+     LEADERSHIP
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-heading">
+
+    <div>
+
+        <div class="section-number">
+            06 — BEYOND DATA
+        </div>
+
+        <h2 class="section-title">
+            Leadership & activities.
+        </h2>
+
+    </div>
+
+</div>
+
+
+
+<div class="leadership-grid">
+
+
+    <div class="leadership-card">
+
+        <h3>
+            Bangladesh Red Crescent Society
+        </h3>
+
+        <p>
+            Member of Dhaka College Unit.
+            Volunteered in community safety programs
+            and team coordination.
+        </p>
+
+    </div>
+
+
+    <div class="leadership-card">
+
+        <h3>
+            Raiganj Upzilla Association — Dhaka
+        </h3>
+
+        <p>
+            Founder. Led organizational outreach
+            and managed member databases.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
 <section id="contact">
 
 <div class="container">
 
-    <h2>Let's Connect</h2>
 
-    <p class="section-intro">
-        I am open to Data Analyst opportunities, analytics projects
-        and professional connections.
-    </p>
+<div class="section-heading">
 
+    <div>
 
-    <div class="contact">
-
-
-        <!-- CONTACT INFORMATION -->
-
-        <div class="card">
-
-            <h3>
-                Contact Information
-            </h3>
-
-            <p>
-                Email:
-                <a href="mailto:nasimuddin836@gmail.com">
-                    nasimuddin836@gmail.com
-                </a>
-            </p>
-
-            <p>
-                Location: Dhaka, Bangladesh
-            </p>
-
-            <p>
-                Phone:
-                <a href="tel:+8801757445143">
-                    +880 1757-445143
-                </a>
-            </p>
-
+        <div class="section-number">
+            07 — CONTACT
         </div>
 
+        <h2 class="section-title">
+            Let's talk data.
+        </h2>
 
-        <!-- ONLINE PROFILES -->
+    </div>
 
-        <div class="card">
+</div>
 
-            <h3>
-                Online Profiles
-            </h3>
 
+
+<div class="contact-wrapper">
+
+
+    <div class="contact-main">
+
+        <h3>
+            Have a data problem?
+        </h3>
+
+        <p>
+            I'm interested in Data Analyst opportunities,
+            analytics projects and professional connections.
+        </p>
+
+
+        <div class="contact-buttons">
 
             <a
-                class="profile-link"
-                href="https://github.com/Nasim43"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:nasimuddin836@gmail.com"
+                class="button button-primary"
             >
-                💻 GitHub → github.com/Nasim43
+                Email Me
             </a>
 
-
             <a
-                class="profile-link"
                 href="https://www.linkedin.com/in/nasim-uddin-43m/"
                 target="_blank"
                 rel="noopener noreferrer"
+                class="button button-outline"
             >
-                🔗 LinkedIn → linkedin.com/in/nasim-uddin-43m/
-            </a>
-
-
-            <a
-                class="profile-link"
-                href="https://www.youtube.com/@learninspirebd"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ▶ YouTube → Learn & Inspire BD
+                LinkedIn
             </a>
 
         </div>
 
     </div>
 
+
+
+    <div class="contact-list">
+
+
+        <a
+            href="mailto:nasimuddin836@gmail.com"
+            class="contact-item"
+        >
+
+            <div class="contact-label">
+                Email
+            </div>
+
+            <div class="contact-value">
+                nasimuddin836@gmail.com
+            </div>
+
+        </a>
+
+
+        <a
+            href="tel:+8801757445143"
+            class="contact-item"
+        >
+
+            <div class="contact-label">
+                Phone
+            </div>
+
+            <div class="contact-value">
+                +880 1757-445143
+            </div>
+
+        </a>
+
+
+        <a
+            href="https://github.com/Nasim43"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-item"
+        >
+
+            <div class="contact-label">
+                GitHub
+            </div>
+
+            <div class="contact-value">
+                github.com/Nasim43
+            </div>
+
+        </a>
+
+
+        <a
+            href="https://www.youtube.com/@learninspirebd"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-item"
+        >
+
+            <div class="contact-label">
+                YouTube
+            </div>
+
+            <div class="contact-value">
+                Learn & Inspire BD
+            </div>
+
+        </a>
+
+    </div>
+
+</div>
+
 </div>
 
 </section>
 
+
 </main>
 
 
-<!-- FOOTER -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    © 2026 MD. Nasim Uddin · Data Analyst Portfolio
+<div class="container footer-inner">
+
+    <div>
+        © 2026 MD. Nasim Uddin
+    </div>
+
 
     <div class="footer-links">
 
@@ -1132,7 +2044,10 @@ footer{
 
     </div>
 
+</div>
+
 </footer>
+
 
 </body>
 </html>
